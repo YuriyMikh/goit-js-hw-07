@@ -1,8 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
-
 const galleryContainerRef = document.querySelector(".gallery");
 const galleryMarkup = createGalleryMarkup(galleryItems);
 
@@ -25,7 +23,9 @@ function createGalleryMarkup(array) {
     .join("");
 }
 
-galleryContainerRef.addEventListener("click", (event) => {
+galleryContainerRef.addEventListener("click", onGalleryClickShowImage);
+
+function onGalleryClickShowImage(event) {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
 
@@ -33,4 +33,28 @@ galleryContainerRef.addEventListener("click", (event) => {
     <img src="${event.target.dataset.source}" width="800" height="600">
 `);
   instance.show();
-});
+
+  document.addEventListener("keydown", (event) => {
+    const visible = basicLightbox.visible();
+    if (visible && event.code === "Escape") {
+      console.log("isOpen", event.code);
+      // const instance = instance.close();
+      instance.close();
+    }
+    });
+  }
+
+// document.addEventListener("keydown", onCloseModalEscapeKey);
+
+// function onCloseModalEscapeKey(event) {
+//   const visible = basicLightbox.visible();
+//   if (visible && event.code === "Escape") {
+//     console.log("isOpen", event.code);
+//     // const instance = instance.close();
+//     instance.close();
+//   }
+  // if (event.code === "Escape") {
+  //
+  //   console.log("code: YES", event.code);
+  // }
+// }
