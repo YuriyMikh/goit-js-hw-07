@@ -29,9 +29,8 @@ galleryContainerRef.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
 
-  // console.log("event.target: ", event.target);
-  // console.log("event.currentTarget: ", event.currentTarget);
-
-  const originalImgRef = event.target.dataset.source;
-  console.log("event.target.dataset.source: ", originalImgRef);
+  const instance = basicLightbox.create(`
+    <img src="${event.target.dataset.source}" width="800" height="600">
+`);
+  instance.show();
 });
