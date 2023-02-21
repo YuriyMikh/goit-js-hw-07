@@ -37,12 +37,11 @@ function onGalleryClickShowImage(event) {
   document.addEventListener("keydown", (event) => {
     const visible = basicLightbox.visible();
     if (visible && event.code === "Escape") {
-      console.log("isOpen", event.code);
       // const instance = instance.close();
       instance.close();
     }
-    });
-  }
+  });
+}
 
 // document.addEventListener("keydown", onCloseModalEscapeKey);
 
@@ -53,8 +52,8 @@ function onGalleryClickShowImage(event) {
 //     // const instance = instance.close();
 //     instance.close();
 //   }
-  // if (event.code === "Escape") {
-  //
-  //   console.log("code: YES", event.code);
-  // }
+// if (event.code === "Escape") {
+//
+//   console.log("code: YES", event.code);
+// }
 // }
