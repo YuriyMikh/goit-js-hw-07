@@ -20,14 +20,14 @@ function createGalleryMarkup(array) {
 }
 
 // переопределяем captionDelay и captionsData в момент создания нового экземпляра
-// let gallery = new SimpleLightbox(".gallery a", {
-//   captionDelay: 250,
-//   captionsData: "alt",
-// });
-
-let gallery = new SimpleLightbox(".gallery a")
-// переопределяем captionDelay и captionsData через вызов функции. Это правильно?
-gallery.on("show.simplelightbox", function () {
-  gallery.defaultOptions.captionDelay = 250;
-  gallery.defaultOptions.captionsData = "alt";
+let gallery = new SimpleLightbox(".gallery a", {
+  captionDelay: 250,
+  captionsData: "alt",
 });
+
+// let gallery = new SimpleLightbox(".gallery a")
+// переопределяем captionDelay и captionsData через вызов функции. Это правильно?
+// gallery.on("show.simplelightbox", function () {
+//   gallery.defaultOptions.captionDelay = 250;
+//   gallery.defaultOptions.captionsData = "alt";
+// });
