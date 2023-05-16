@@ -37,7 +37,6 @@ function onGalleryClickShowImage(event) {
   document.addEventListener("keydown", (event) => {
     const visible = basicLightbox.visible();
     if (visible && event.code === "Escape") {
-      // const instance = instance.close();
       instance.close();
     }
   });
