@@ -29,17 +29,31 @@ function onGalleryClickShowImage(event) {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
 
-  const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" width="800" height="600">
-`);
+  const instance = basicLightbox.create(
+    `
+    <img src="${event.target.dataset.source}" width="800" height="600"> 
+`,
+    {
+      onClose: (instance) =>
+        document.removeEventListener("keydown", onCloseModalEscapeKey),
+    }
+  );
   instance.show();
 
-  document.addEventListener("keydown", (event) => {
+  // document.addEventListener("keydown", (event) => {
+  //   const visible = basicLightbox.visible();
+  //   if (visible && event.code === "Escape") {
+  //     instance.close();
+  //   }
+  // });
+  document.addEventListener("keydown", onCloseModalEscapeKey);
+
+  function onCloseModalEscapeKey(event) {
     const visible = basicLightbox.visible();
     if (visible && event.code === "Escape") {
       instance.close();
     }
-  });
+  }
 }
 
 // document.addEventListener("keydown", onCloseModalEscapeKey);
