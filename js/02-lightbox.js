@@ -26,7 +26,7 @@ let gallery = new SimpleLightbox(".gallery a", {
 });
 
 // let gallery = new SimpleLightbox(".gallery a")
-// переопределяем captionDelay и captionsData через вызов функции. Это правильно?
+// переопределяем captionDelay и captionsData через вызов функции.
 // gallery.on("show.simplelightbox", function () {
 //   gallery.defaultOptions.captionDelay = 250;
 //   gallery.defaultOptions.captionsData = "alt";
