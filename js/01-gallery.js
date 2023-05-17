@@ -29,7 +29,9 @@ function onGalleryClickShowImage(event) {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
 
-  //инициализируем экземпляр basicLightbox, первым параметром передаем строку с разметкой, а вторым - объект настроек. Записываем в него свойство onClose, а значение - удаление слушателя события (document.removeEventListener("keydown", onCloseModalEscapeKey),)
+  //инициализируем экземпляр basicLightbox, первым параметром передаем строку с разметкой, а вторым - объект настроек.
+  //Записываем в него свойство onClose, а значение - удаление слушателя события(document.removeEventListener("keydown", onCloseModalEscapeKey)).
+  //Теперь прослушивание клавиатуры будет только пока открыто модальное окно.
   const instance = basicLightbox.create(
     `
     <img src="${event.target.dataset.source}" width="800" height="600"> 
